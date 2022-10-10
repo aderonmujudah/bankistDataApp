@@ -174,6 +174,74 @@ const account8 = {
   currency: 'NGN',
   locale: 'en-NG',
 };
+const account9 = {
+  owner: 'Chibuzor Ibekwe',
+  movements: [1000, 5000, 2000, 1000, 800, 3000, 600, -500, 1900, -600],
+  hasExistingLoan: false,
+  loanAmountValue: 0,
+  interestRate: 1.0,
+  pin: 8888,
+  movementsDates: [
+    '2018-03-03T23:00:00.000Z',
+    '2018-03-19T23:00:00.000Z',
+    '2018-04-19T23:00:00.000Z',
+    '2018-05-19T23:00:00.000Z',
+    '2019-11-01T13:15:33.035Z',
+    '2019-11-30T09:48:16.867Z',
+    '2020-01-25T14:18:46.235Z',
+    '2020-02-05T16:33:06.386Z',
+    '2020-07-26T12:01:20.894Z',
+    '2021-08-17T23:00:00.000Z',
+  ],
+  currency: 'NGN',
+  locale: 'en-NG',
+};
+
+const account10 = {
+  owner: 'Olisa Maduegbuna',
+  movements: [1000, 5000, 2000, 1000, 800, 3000, 600, -500, 1900, -600],
+  hasExistingLoan: false,
+  loanAmountValue: 0,
+  interestRate: 1.0,
+  pin: 8888,
+  movementsDates: [
+    '2018-03-03T23:00:00.000Z',
+    '2018-03-19T23:00:00.000Z',
+    '2018-04-19T23:00:00.000Z',
+    '2018-05-19T23:00:00.000Z',
+    '2019-11-01T13:15:33.035Z',
+    '2019-11-30T09:48:16.867Z',
+    '2020-01-25T14:18:46.235Z',
+    '2020-02-05T16:33:06.386Z',
+    '2020-07-26T12:01:20.894Z',
+    '2021-08-17T23:00:00.000Z',
+  ],
+  currency: 'NGN',
+  locale: 'en-NG',
+};
+
+const account11 = {
+  owner: 'Semilogo Osunderu',
+  movements: [1000, 5000, 2000, 1000, 800, 3000, 600, -500, 1900, -600],
+  hasExistingLoan: false,
+  loanAmountValue: 0,
+  interestRate: 1.0,
+  pin: 1101,
+  movementsDates: [
+    '2018-03-03T23:00:00.000Z',
+    '2018-03-19T23:00:00.000Z',
+    '2018-04-19T23:00:00.000Z',
+    '2018-05-19T23:00:00.000Z',
+    '2019-11-01T13:15:33.035Z',
+    '2019-11-30T09:48:16.867Z',
+    '2020-01-25T14:18:46.235Z',
+    '2020-02-05T16:33:06.386Z',
+    '2020-07-26T12:01:20.894Z',
+    '2021-08-17T23:00:00.000Z',
+  ],
+  currency: 'NGN',
+  locale: 'en-NG',
+};
 
 const accounts = [
   account1,
@@ -184,6 +252,9 @@ const accounts = [
   account6,
   account7,
   account8,
+  account9,
+  account10,
+  account11,
 ];
 
 /////////////////////////////////////////////////
