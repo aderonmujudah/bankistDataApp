@@ -7,17 +7,24 @@
 /////////////////////////////////////////////////
 // Data
 
-// DIFFERENT DATA! Contains movement dates, currency and locale
+const Account = function (own, movs, intRate, pin, movsDates, cur, loc) {
+  this.owner = own;
+  this.movements = movs;
+  this.hasExistingLoan = false;
+  this.loanAmountValue = 0;
+  this.interestRate = intRate;
+  this.pin = pin;
+  this.movementsDates = movsDates;
+  this.currency = cur;
+  this.locale = loc;
+};
 
-const account1 = {
-  owner: 'Jonas Schmedtmann',
-  movements: [200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300],
-  hasExistingLoan: false,
-  loanAmountValue: 0,
-  interestRate: 1.2, // %
-  pin: 1111,
-
-  movementsDates: [
+const account1 = new Account(
+  'Jonas Schmedtmann',
+  [200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300],
+  1.2,
+  1111,
+  [
     '2019-11-18T21:31:17.178Z',
     '2019-12-23T07:42:02.383Z',
     '2020-01-28T09:15:04.904Z',
@@ -27,19 +34,16 @@ const account1 = {
     '2020-07-11T23:36:17.929Z',
     '2020-07-12T10:51:36.790Z',
   ],
-  currency: 'EUR',
-  locale: 'pt-PT', // de-DE
-};
+  'EUR',
+  'pt-PT'
+);
 
-const account2 = {
-  owner: 'Jessica Davis',
-  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
-  hasExistingLoan: false,
-  loanAmountValue: 0,
-  interestRate: 1.5,
-  pin: 2222,
-
-  movementsDates: [
+const account2 = new Account(
+  'Jessica Davis',
+  [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+  1.5,
+  2222,
+  [
     '2019-11-01T13:15:33.035Z',
     '2019-11-30T09:48:16.867Z',
     '2019-12-25T06:04:23.907Z',
@@ -49,18 +53,15 @@ const account2 = {
     '2020-06-25T18:49:59.371Z',
     '2020-07-26T12:01:20.894Z',
   ],
-  currency: 'USD',
-  locale: 'en-US',
-};
-
-const account3 = {
-  owner: 'Steven Thomas Williams',
-  movements: [200, -200, 340, -300, -20, 50, 400, -460],
-  hasExistingLoan: false,
-  loanAmountValue: 0,
-  interestRate: 0.7,
-  pin: 3333,
-  movementsDates: [
+  'USD',
+  'en-US'
+);
+const account3 = new Account(
+  'Steven Thomas Williams',
+  [200, -200, 340, -300, -20, 50, 400, -460],
+  0.7,
+  3333,
+  [
     '2019-11-01T13:15:33.035Z',
     '2019-11-30T09:48:16.867Z',
     '2019-12-25T06:04:23.907Z',
@@ -70,53 +71,48 @@ const account3 = {
     '2020-06-25T18:49:59.371Z',
     '2020-07-26T12:01:20.894Z',
   ],
-  currency: 'USD',
-  locale: 'en-US',
-};
+  'USD',
+  'en-US'
+);
 
-const account4 = {
-  owner: 'Sarah Smith',
-  movements: [430, 1000, 700, 50, 90],
-  hasExistingLoan: false,
-  loanAmountValue: 0,
-  interestRate: 1,
-  pin: 4444,
-  movementsDates: [
+const account4 = new Account(
+  'Sarah Smith',
+  [430, 1000, 700, 50, 90],
+  1,
+  4444,
+  [
     '2020-01-25T14:18:46.235Z',
     '2020-02-05T16:33:06.386Z',
     '2020-04-10T14:43:26.374Z',
     '2020-06-25T18:49:59.371Z',
     '2020-07-26T12:01:20.894Z',
   ],
-  currency: 'USD',
-  locale: 'en-US',
-};
-const account5 = {
-  owner: 'Judah Aderonmu',
-  movements: [10000, 7000, 1700, 500, 900],
-  hasExistingLoan: false,
-  loanAmountValue: 0,
-  interestRate: 5,
-  pin: 5555,
-  movementsDates: [
+  'USD',
+  'en-US'
+);
+
+const account5 = new Account(
+  'Judah Aderonmu',
+  [10000, 7000, 1700, 500, 900],
+  5,
+  5555,
+  [
     '2019-11-01T13:15:33.035Z',
     '2019-12-25T06:04:23.907Z',
     '2022-10-02T16:33:06.386Z',
     '2022-10-07T18:49:59.371Z',
     '2022-10-09T12:01:20.894Z',
   ],
-  currency: 'NGN',
-  locale: 'en-NG',
-};
+  'NGN',
+  'en-NG'
+);
 
-const account6 = {
-  owner: 'Isaac Aderonmu',
-  movements: [8000, 3000, 600, -500, 1900, -600],
-  hasExistingLoan: false,
-  loanAmountValue: 0,
-  interestRate: 1.5,
-  pin: 6666,
-  movementsDates: [
+const account6 = new Account(
+  'Isaac Aderonmu',
+  [8000, 3000, 600, -500, 1900, -600],
+  1.5,
+  6666,
+  [
     '2018-03-03T23:00:00.000Z',
     '2019-11-01T13:15:33.035Z',
     '2019-11-30T09:48:16.867Z',
@@ -124,20 +120,16 @@ const account6 = {
     '2020-02-05T16:33:06.386Z',
     '2020-07-26T12:01:20.894Z',
   ],
-  currency: 'NGN',
-  locale: 'en-NG',
-};
+  'NGN',
+  'en-NG'
+);
 
-const account7 = {
-  owner: 'Tito Ayodeji',
-  movements: [
-    10000000, 5000000, 2000000, 1000000, 800000, 300000, 600, -500, 1900, -600,
-  ],
-  hasExistingLoan: false,
-  loanAmountValue: 0,
-  interestRate: 1.0,
-  pin: 7777,
-  movementsDates: [
+const account7 = new Account(
+  'Tito Ayodeji',
+  [1000000, 500000, 200000, 100000, 80000, 30000, 600, -500, 190, -60],
+  1.0,
+  7777,
+  [
     '2018-03-03T23:00:00.000Z',
     '2018-03-19T23:00:00.000Z',
     '2018-04-19T23:00:00.000Z',
@@ -149,62 +141,16 @@ const account7 = {
     '2020-07-26T12:01:20.894Z',
     '2021-08-17T23:00:00.000Z',
   ],
-  currency: 'USD',
-  locale: 'en-NG',
-};
-const account8 = {
-  owner: 'Olabisi Aderonmu',
-  movements: [1000, 5000, 2000, 1000, 800, 3000, 600, -500, 1900, -600],
-  hasExistingLoan: false,
-  loanAmountValue: 0,
-  interestRate: 1.0,
-  pin: 8888,
-  movementsDates: [
-    '2018-03-03T23:00:00.000Z',
-    '2018-03-19T23:00:00.000Z',
-    '2018-04-19T23:00:00.000Z',
-    '2018-05-19T23:00:00.000Z',
-    '2019-11-01T13:15:33.035Z',
-    '2019-11-30T09:48:16.867Z',
-    '2020-01-25T14:18:46.235Z',
-    '2020-02-05T16:33:06.386Z',
-    '2020-07-26T12:01:20.894Z',
-    '2021-08-17T23:00:00.000Z',
-  ],
-  currency: 'NGN',
-  locale: 'en-NG',
-};
-const account9 = {
-  owner: 'Chibuzor Ibekwe',
-  movements: [1000, 5000, 2000, 1000, 800, 3000, 600, -500, 1900, -600],
-  hasExistingLoan: false,
-  loanAmountValue: 0,
-  interestRate: 1.0,
-  pin: 9999,
-  movementsDates: [
-    '2018-03-03T23:00:00.000Z',
-    '2018-03-19T23:00:00.000Z',
-    '2018-04-19T23:00:00.000Z',
-    '2018-05-19T23:00:00.000Z',
-    '2019-11-01T13:15:33.035Z',
-    '2019-11-30T09:48:16.867Z',
-    '2020-01-25T14:18:46.235Z',
-    '2020-02-05T16:33:06.386Z',
-    '2020-07-26T12:01:20.894Z',
-    '2021-08-17T23:00:00.000Z',
-  ],
-  currency: 'NGN',
-  locale: 'en-NG',
-};
+  'USD',
+  'en-NG'
+);
 
-const account10 = {
-  owner: 'Olisa Maduegbuna',
-  movements: [1000, 5000, 2000, 1000, 800, 3000, 600, -500, 1900, -600],
-  hasExistingLoan: false,
-  loanAmountValue: 0,
-  interestRate: 1.0,
-  pin: 1010,
-  movementsDates: [
+const account8 = new Account(
+  'Olabisi Aderonmu',
+  [1000, 5000, 2000, 1000, 800, 3000, 600, -500, 1900, -600],
+  1.0,
+  8888,
+  [
     '2018-03-03T23:00:00.000Z',
     '2018-03-19T23:00:00.000Z',
     '2018-04-19T23:00:00.000Z',
@@ -216,18 +162,36 @@ const account10 = {
     '2020-07-26T12:01:20.894Z',
     '2021-08-17T23:00:00.000Z',
   ],
-  currency: 'NGN',
-  locale: 'en-NG',
-};
+  'NGN',
+  'en-NG'
+);
+const account9 = new Account(
+  'Chibuzor Ibekwe',
+  [1000, 5000, 2000, 1000, 800, 3000, 600, -500, 1900, -600],
+  1.0,
+  9999,
+  [
+    '2018-03-03T23:00:00.000Z',
+    '2018-03-19T23:00:00.000Z',
+    '2018-04-19T23:00:00.000Z',
+    '2018-05-19T23:00:00.000Z',
+    '2019-11-01T13:15:33.035Z',
+    '2019-11-30T09:48:16.867Z',
+    '2020-01-25T14:18:46.235Z',
+    '2020-02-05T16:33:06.386Z',
+    '2020-07-26T12:01:20.894Z',
+    '2021-08-17T23:00:00.000Z',
+  ],
+  'NGN',
+  'en-NG'
+);
 
-const account11 = {
-  owner: 'Semilogo Osunderu',
-  movements: [1000, 5000, 2000, 1000, 800, 3000, 600, -500, 1900, -600],
-  hasExistingLoan: false,
-  loanAmountValue: 0,
-  interestRate: 1.0,
-  pin: 1101,
-  movementsDates: [
+const account10 = new Account(
+  'Olisa Maduegbuna',
+  [1000, 5000, 2000, 1000, 800, 3000, 600, -500, 1900, -600],
+  1.0,
+  1010,
+  [
     '2018-03-03T23:00:00.000Z',
     '2018-03-19T23:00:00.000Z',
     '2018-04-19T23:00:00.000Z',
@@ -239,9 +203,30 @@ const account11 = {
     '2020-07-26T12:01:20.894Z',
     '2021-08-17T23:00:00.000Z',
   ],
-  currency: 'NGN',
-  locale: 'en-NG',
-};
+  'NGN',
+  'en-NG'
+);
+
+const account11 = new Account(
+  'Semilogo Osunderu',
+  [1000, 5000, 2000, 1000, 800, 3000, 600, -500, 1900, -600],
+  1.0,
+  1101,
+  [
+    '2018-03-03T23:00:00.000Z',
+    '2018-03-19T23:00:00.000Z',
+    '2018-04-19T23:00:00.000Z',
+    '2018-05-19T23:00:00.000Z',
+    '2019-11-01T13:15:33.035Z',
+    '2019-11-30T09:48:16.867Z',
+    '2020-01-25T14:18:46.235Z',
+    '2020-02-05T16:33:06.386Z',
+    '2020-07-26T12:01:20.894Z',
+    '2021-08-17T23:00:00.000Z',
+  ],
+  'NGN',
+  'en-NG'
+);
 
 const accounts = [
   account1,
@@ -257,6 +242,7 @@ const accounts = [
   account11,
 ];
 
+console.log(accounts);
 /////////////////////////////////////////////////
 // Elements
 const labelWelcome = document.querySelector('.welcome');
@@ -592,7 +578,7 @@ btnLoan.addEventListener('click', function (e) {
 
       // Update UI
       updateUI(currentAccount);
-    }, 3000);
+    }, 2500);
     clearInterval(timer);
     timer = startLogOutTimer();
   }
